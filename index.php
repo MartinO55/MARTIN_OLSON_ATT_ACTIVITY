@@ -26,19 +26,50 @@
         <div>
             <?php
             foreach($fileForDisplay as $key => $value){
-                if(!is_array($value)){
-                    echo '<br>object index: ' . $key . '<br>';
-                } else {
-                    foreach($value as $sku => $skuEntry) {
-                        if (!is_array($skuEntry)){//this entry is always an array, so this should never run
-                            echo 'You Should not be here';
-                        } else {
-                            foreach($skuEntry as $singleSku => $skuEntryColumnHeading){//OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
-                                echo '<br> column index: ' . $singleSku;
+                if(!is_array($value))
+                { 
+                    echo '<br>1D object index: ' . $key . '<br>';
+                }
+                    else {
+                            foreach($value as $sku => $skuEntry) 
+                            {if (!is_array($skuEntry)) {echo 'You Should not be here';} 
+                                else {
+                                    foreach($skuEntry as $singleSku => $skuEntryColumnHeading)
+                                        {//OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
+                                            if (!is_array($skuEntryColumnHeading))
+                                            {
+                                                echo '<br>2D column index: ' . $singleSku . '<br>';
+                                            } 
+                                            else 
+                                                {
+                                                    foreach($skuEntryColumnHeading as $skuSubCollumn => $skuSubColumnKey)
+                                                    {
+                                                        if(!is_array($skuSubColumnKey))
+                                                        {
+                                                            echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
+                                                        } else 
+                                                            {
+                                                                foreach($skuSubColumnKey as $skuSubColumnEntry => $skuSubSubColumnKey)
+                                                                {
+                                                                    if (!is_array($skuSubSubColumnKey))
+                                                                    {
+                                                                        echo "<br>4D sku Sub Sub Column Contents: " . $skuSubSubColumnKey;
+                                                                    } else 
+                                                                        {
+                                                                            foreach ($skuSubSubColumnKey as $sku5DColumnEntry => $sku5DColumnKey) {
+                                                                               echo "<br> 5d Column contents: " . $sku5DColumnKey;//So we could keep extending this algorithm for another 2 or 3 dimensions I think, but we are just dropping that data anyway so I don't think we need to
+                                                                            }
+                                                                        }
+                                                                
+                                                                }
+                                                            }
+                                                        
+                                                    }
+                                                }      
+                                        }
+                                    }
                             }
-                        }
-                      }
-                }  
+                        }  
             }
              
 

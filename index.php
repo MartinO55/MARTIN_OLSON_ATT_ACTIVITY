@@ -38,7 +38,7 @@
                                         {//OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
                                             {
-                                                echo '<br>2D column index: ' . $singleSku . '<br>';
+                                                echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
                                             } 
                                             else 
                                                 {

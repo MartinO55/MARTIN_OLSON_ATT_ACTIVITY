@@ -137,19 +137,27 @@
                                                     $tempPDPPageURLArray =array('PDPPageURL'=>$skuEntryColumnHeading);
                                                     
                                                     //so this is the array with all the things, however, it is not limited by
-                                                } else {
+                                                } 
+                                                
+                                                else {
                                                    // echo 'dont want this';
                                                 }          
                                             } else 
                                                 {
                                                     foreach($skuEntryColumnHeading as $skuSubCollumn => $skuSubColumnKey)
                                                     { //echo $skuSubCollumn . '<br><br>';
+                                                        if ($skuSubColumnKey = 'mCategories'){
+                                                            //var_dump($skuSubColumnKey);
+                                                           for ($i=0; $i < $skuSubColumnKey; $i++) { 
+                                                            # code...
+                                                           }
+                                                        }
                                                         
                                                         if(!is_array($skuSubColumnKey))
                                                         {   //echo $skuSubColumnKey . '<br><br>';
                                                             //echo $skuSubColumn;
                                                             //echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
-                                                            
+
                                                             if ($skuSubColumnKey != 'M-CAT-SMARTPHONES'){//so this is the category we want, and if we only add this it should automatically filter out tablets and wearables
                                                                  
                                                                  //$isSmartphone = true;
@@ -160,7 +168,7 @@
                                                                 //echo $skuSubColumnKey . '<br>Smartphone<br>' . $singleSku ;
                                                                 if ($smartphonesToggle == true){
                                                                     $isSmartPhone = array('This is a smartphone') ;
-                                                                    var_dump($isSmartPhone);
+                                                                    //var_dump($isSmartPhone);
                                                                 }
                                                                 //var_dump($smartphonesToggle) ;
                                                              }
@@ -168,10 +176,10 @@
                                                     } //var_dump($isSmartphone);
                                                 }      
                                         } 
-                                    if ($tempmBrandArray != 'filthyAppleDevice' && $isSmartPhone = 'This is a smartphone')
+                                    if ($tempmBrandArray != 'filthyAppleDevice')
                                     {
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
-                                        var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                        //var_dump($newSubTargetArray);//this can just be pushed into the big array?
                                         //var_dump($smartphonesToggle);
                                         echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;

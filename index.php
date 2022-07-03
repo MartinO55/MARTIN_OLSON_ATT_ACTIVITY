@@ -89,9 +89,9 @@
                                                         {
                                                             echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
 
-                                                            // if ($skuSubColumnKey == 'M-CAT-SMARTPHONES'){
-                                                            //     echo 'this a smartphone';
-                                                            // }
+                                                            if ($skuSubColumnKey == 'M-CAT-SMARTPHONES'){
+                                                                 echo 'this a smartphone';
+                                                             }
                                                         } else 
                                                             {
                                                                 foreach($skuSubColumnKey as $skuSubColumnEntry => $skuSubSubColumnKey)

@@ -34,7 +34,7 @@
                     else {
                             foreach($value as $sku => $skuEntry) 
                             {if (!is_array($skuEntry)) {echo 'You Should not be here';} 
-                                else {
+                                else {//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing
                                     foreach($skuEntry as $singleSku => $skuEntryColumnHeading)
                                         {//OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
@@ -42,8 +42,14 @@
                                                 echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
                                                 if($singleSku == 'mBrand'){ // && brand !apple
                                                     echo "this is an mbrand";
-                                                } elseif($singleSku == 'skuDisplayName') {
+                                                } elseif($singleSku == 'skuDisplayName') {// and remove colour descriptions? so we can use strrpos to get the postiton of each oft 
                                                     echo "this is a skudisplayname";
+                                                    $lastHyphenInSkuDisplayNameLoc = strrpos($skuEntryColumnHeading,'-',-1);
+                                                
+                                                    //use strrpos to find the last '-' in a variable
+                                                    $skuDisplayNameWithoutColour = substr($skuEntryColumnHeading,0,$lastHyphenInSkuDisplayNameLoc);
+                                                    echo $skuDisplayNameWithoutColour;
+                                                    //use that 
                                                 } elseif ($singleSku == 'mPrice') {
                                                     echo "this is an mprice";
                                                 } elseif ($singleSku == 'mListPrice') {

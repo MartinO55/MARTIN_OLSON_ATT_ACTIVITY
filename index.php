@@ -149,24 +149,29 @@
                                                         {   //echo $skuSubColumnKey . '<br><br>';
                                                             //echo $skuSubColumn;
                                                             //echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
+                                                            
                                                             if ($skuSubColumnKey != 'M-CAT-SMARTPHONES'){//so this is the category we want, and if we only add this it should automatically filter out tablets and wearables
-                                                                 //echo 'this a smartphone';
-                                                                 //$isSmartphone = true;
-                                                                 //echo $skuSubColumnKey . '<br>';
                                                                  
+                                                                 //$isSmartphone = true;
+                                                                 //echo $skuSubColumnKey ;
+                                                                 //echo 'this a not smartphone <br>';
                                                              }else{
-                                                                $smartphonesToggle = array('SMARTPHONE');
-                                                                echo $skuSubColumnKey . '<br>' .
-                                                                var_dump($smartphonesToggle) ;
+                                                                $smartphonesToggle = true;
+                                                                //echo $skuSubColumnKey . '<br>Smartphone<br>' . $singleSku ;
+                                                                if ($smartphonesToggle == true){
+                                                                    $isSmartPhone = array('This is a smartphone') ;
+                                                                    var_dump($isSmartPhone);
+                                                                }
+                                                                //var_dump($smartphonesToggle) ;
                                                              }
                                                         }  
                                                     } //var_dump($isSmartphone);
                                                 }      
                                         } 
-                                    if ($tempmBrandArray != 'filthyAppleDevice')
+                                    if ($tempmBrandArray != 'filthyAppleDevice' && $isSmartPhone = 'This is a smartphone')
                                     {
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
-                                        //var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                        var_dump($newSubTargetArray);//this can just be pushed into the big array?
                                         //var_dump($smartphonesToggle);
                                         echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;

@@ -42,15 +42,15 @@
                                             //OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
                                             { 
-                                            
                                                 //echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
                                                 if ($singleSku == 'mBrand'){ // && brand !apple                                        
-                                                
-                                                    $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading); 
+                                                    $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading);
+
                                                     if($skuEntryColumnHeading == "Apple"){
                                                         $filthyAppleDevice = true;
-                                                    }
-                                                    
+                                                        var_dump($filthyAppleDevice);
+                                                        $tempmBrandArray = 'filthyAppleDevice';
+                                                    }    
                                                 }
 
                                                 if ($singleSku === 'skuDisplayName') {
@@ -58,9 +58,7 @@
                                                     
                                                     $skuDisplayNameWithoutColour = substr($skuEntryColumnHeading,0,$lastHyphenInSkuDisplayNameLoc);
                                                     
-                                                    $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);
-                                                    
-                                                  
+                                                    $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);   
 
                                                 } if ($singleSku == 'mPrice') {
                                                     //echo "this is an mprice";
@@ -79,8 +77,6 @@
 
                                                     $tempMModelArray = array('mModel'=> $skuEntryColumnHeading);
                                                     
-                                                   
-
                                                 } if ($singleSku =='mLargeImage'){
                                                     //echo 'this is the image';
 
@@ -162,10 +158,9 @@
                                                     
                                                 } else {
                                                    // echo 'dont want this';
+                                                   
                                                 } 
                                                 
-                                                
-                                               
                                             } 
                                             else 
                                                 {
@@ -183,10 +178,16 @@
                                                     } //var_dump($isSmartphone);
                                                 }      
                                         } 
-                                            var_dump($tempmBrandArray);
-                                            $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
-                                            var_dump($newSubTargetArray);//this can just be pushed into the big array?
-                                            echo '<br><br>';
+                                            
+                                                if ($tempmBrandArray != 'filthyAppleDevice'){
+                                                    $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
+                                                    var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                                    echo '<br><br>';
+                                                   // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
+                                                } 
+                                               
+                                           
+                                            
                                     }
                             }
                         }  

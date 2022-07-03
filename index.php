@@ -39,6 +39,46 @@
                                             if (!is_array($skuEntryColumnHeading))
                                             {
                                                 echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
+                                                if($singleSku == 'mbrand'){ // && brand !apple
+                                                    echo "this is an mbrand";
+                                                } elseif($singleSku == 'skudisplayname') {
+                                                    echo "this is a skudisplayname";
+                                                } elseif ($singleSku == 'mprice') {
+                                                    echo "this is an mprice";
+                                                } elseif ($singleSku == 'mlistprice') {
+                                                    echo "this is an mlisprice";
+                                                } elseif ($singleSku == 'model'){
+                                                    echo 'this is the model';
+                                                } elseif ($singleSku =='mlargeimage'){
+                                                    echo 'this is the image';
+                                                } elseif ($singleSku == 'mid'){
+                                                    echo 'this is the mid';
+                                                } elseif ($singleSku == 'mproductpageurl'){
+                                                    echo 'mproductpageurl is this';
+                                                } elseif ($singleSku == 'mname') {
+                                                    echo 'this is the mname';
+                                                } elseif ($singleSku == 'salesrank') {
+                                                    echo 'this is the salesrank';
+                                                } elseif ($singleSku == 'mstarratings'){
+                                                    echo "this is the mstarrating";
+                                                } elseif ($singleSku == 'mproductid') {
+                                                    echo 'this is hte mproductid';
+                                                } elseif ($singleSku == 'devicetype'){
+                                                    echo 'this is the devicetype';
+                                                } elseif ($singleSku == 'mmobileproductpageurl'){
+                                                    echo 'this is the mobile product page url';
+                                                } elseif ($singleSku == 'mproductpageurles') {
+                                                    echo 'this is the product page urles';
+                                                } elseif ($singleSku == 'mdescription'){
+                                                    echo 'this is the mdescription';
+                                                } elseif ($singleSku == 'mduetoday'){
+                                                    echo ' this is the mduetoday';
+                                                } elseif ($singleSku == 'pdppageurl'){
+                                                    echo 'this is the pdppageurl';
+                                                } else {
+                                                    return;
+                                                }
+                                                
                                             } 
                                             else 
                                                 {
@@ -47,6 +87,10 @@
                                                         if(!is_array($skuSubColumnKey))
                                                         {
                                                             echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
+
+                                                            // if ($skuSubColumnKey == 'M-CAT-SMARTPHONES'){
+                                                            //     echo 'this a smartphone';
+                                                            // }
                                                         } else 
                                                             {
                                                                 foreach($skuSubColumnKey as $skuSubColumnEntry => $skuSubSubColumnKey)

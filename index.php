@@ -113,22 +113,58 @@
 
                                                 } elseif ($singleSku == 'salesRank') {
                                                     echo 'this is the salesrank';
+                                                    //so I just realised this should totally be a function
+                                                    $tempSalesRankArray = array('salesRank'=>$skuEntryColumnHeading);
+                                                    $tempArrayAfter10 = array_merge($tempArrayAfter9,$tempSalesRankArray);
+
                                                 } elseif ($singleSku == 'mStarRatings'){
                                                     echo "this is the mstarrating";
+
+                                                    $tempmStarRatingsArray = array('mStarRatings'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter11 = array_merge($tempArrayAfter10, $tempmStarRatingsArray);
+
                                                 } elseif ($singleSku == 'mProductId') {
                                                     echo 'this is hte mproductid';
+
+                                                    $tempmProductIdArray = array('mProductId'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter12 = array_merge($tempArrayAfter11, $tempmProductIdArray);
+
                                                 } elseif ($singleSku == 'deviceType'){
                                                     echo 'this is the devicetype';
+                                                    
+                                                    $tempDeviceTypeArray = array('deviceType'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter13 = array_merge($tempArrayAfter12, $tempDeviceTypeArray);
+
                                                 } elseif ($singleSku == 'mMobileProductPageURL'){
                                                     echo 'this is the mobile product page url';
+
+                                                    $tempmobileProductPageurlArray = array('mMobileProductPageURL'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter14 = array_merge($tempArrayAfter13, $tempmobileProductPageurlArray);
+
                                                 } elseif ($singleSku == 'mProductPageURLEs') {
                                                     echo 'this is the product page urles';
+
+                                                    $tempmProductPageURLEs = array('mProductPageURLEs'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter15 = array_merge($tempArrayAfter14, $tempmProductPageURLEs);
+
                                                 } elseif ($singleSku == 'mDescription'){
                                                     echo 'this is the mdescription';
+
+                                                    $tempMDescriptionArray = array('mDescription'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter16 = array_merge($tempArrayAfter15, $tempMDescriptionArray);
+
                                                 } elseif ($singleSku == 'mDueToday'){
                                                     echo ' this is the mduetoday';
+
+                                                    $tempMDueTodayArray = array('mDueToday'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter17 = array_merge($tempArrayAfter16, $tempMDueTodayArray);
+
                                                 } elseif ($singleSku == 'PDPPageURL'){
                                                     echo 'this is the pdppageurl';
+
+                                                    $tempPDPPageURLArray =array('PDPPageURL'=>$skuEntryColumnHeading);
+                                                    $tempArrayAfter18 = array_merge($tempArrayAfter17,$tempPDPPageURLArray);
+
                                                 } else {
                                                     echo 'dont want this';
                                                 }

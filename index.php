@@ -64,7 +64,7 @@
                                                     $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);
                                                     
                                                     $tempArrayAfter2 = array_merge($tempArrayAfter1,$tempSkuDisplayNameArray);
-                                                    var_dump($tempArrayAfter2);
+                                                    //var_dump($tempArrayAfter2);
                                                     //$newSubTargetArray = $newSubTargetArray + $tempSkuDisplayNameArray;
                                                     //$tempArrayAfter2[] = array_push($tempArrayAfter1,$tempSkuDisplayNameArray);
                                                     //var_dump($tempArrayAfter2);
@@ -77,16 +77,40 @@
 
                                                 } elseif ($singleSku == 'mListPrice') {
                                                     echo "this is an mlisprice";
+
+                                                    $tempMListPriceArray = array('mListPrice' => $skuEntryColumnHeading);
+                                                    $tempArrayAfter4 = array_merge($tempArrayAfter3, $tempMListPriceArray);
+
                                                 } elseif ($singleSku == 'mModel'){
                                                     echo 'this is the model';
+
+                                                    $tempMModelArray = array('mModel'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter5 = array_merge($tempArrayAfter4,$tempMModelArray);
+
                                                 } elseif ($singleSku =='mLargeImage'){
                                                     echo 'this is the image';
+
+                                                    $tempMLargeImageArray = array('mLargeImage'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter6 = array_merge($tempArrayAfter5,$tempMLargeImageArray);
+
                                                 } elseif ($singleSku == 'mId'){
                                                     echo 'this is the mid';
+
+                                                    $tempMIdArray = array('mId'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter7 = array_merge($tempArrayAfter6, $tempMIdArray);
+
                                                 } elseif ($singleSku == 'mProductPageURL'){
                                                     echo 'mproductpageurl is this';
+
+                                                    $tempProductPageURLArray = array('mProductPageURL'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter8 = array_merge($tempArrayAfter7,$tempProductPageURLArray);
+
                                                 } elseif ($singleSku == 'mName') {
                                                     echo 'this is the mname';
+
+                                                    $tempmNameArray = array('mName'=> $skuEntryColumnHeading);
+                                                    $tempArrayAfter9 = array_merge($tempArrayAfter8,$tempmNameArray);
+
                                                 } elseif ($singleSku == 'salesRank') {
                                                     echo 'this is the salesrank';
                                                 } elseif ($singleSku == 'mStarRatings'){

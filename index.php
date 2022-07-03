@@ -38,124 +38,122 @@
                                         $targetArray = [];//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing
                                     foreach($skuEntry as $singleSku => $skuEntryColumnHeading)
                                         {   $newSubTargetArray = [];
-                                            
+                                            $filthyAppleDevice = false;
                                             //OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
                                             { 
+                                            
                                                 //echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
-                                                if($singleSku == 'mBrand' && $skuEntryColumnHeading != "Apple"){ // && brand !apple
-                                                    //echo "this is an mbrand";
-                                                    //if($skuEntryColumnHeading != "Apple"){
-                                                        //echo ' this is not an apple device';
-                                                        $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading);
-                                                        
-                                                      
-                                                    //}
-                                                } elseif($singleSku == 'skuDisplayName' ) {// and remove colour descriptions? 
-                                                    //echo "this is a skudisplayname with the colour";
-                                                    //use strrpos to find the position in the string of the last '-' in a variable
-                                                    $lastHyphenInSkuDisplayNameLoc = strrpos($skuEntryColumnHeading,'-',-1);
-                                                    //then use substr to cut the string at that location
-                                                    $skuDisplayNameWithoutColour = substr($skuEntryColumnHeading,0,$lastHyphenInSkuDisplayNameLoc);
-                                                    //echo $skuDisplayNameWithoutColour;//and then return this instead
+                                                if ($singleSku == 'mBrand'){ // && brand !apple                                        
+                                                
+                                                    $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading); 
+                                                    if($skuEntryColumnHeading == "Apple"){
+                                                        $filthyAppleDevice = true;
+                                                    }
                                                     
-                                                    //use that 
+                                                }
+
+                                                if ($singleSku === 'skuDisplayName') {
+                                                    $lastHyphenInSkuDisplayNameLoc = strrpos($skuEntryColumnHeading,'-',-1);
+                                                    
+                                                    $skuDisplayNameWithoutColour = substr($skuEntryColumnHeading,0,$lastHyphenInSkuDisplayNameLoc);
+                                                    
                                                     $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);
                                                     
                                                   
 
-                                                } elseif ($singleSku == 'mPrice') {
+                                                } if ($singleSku == 'mPrice') {
                                                     //echo "this is an mprice";
 
                                                     $tempMPriceArray = array('mPrice' => $skuEntryColumnHeading);
                                                    
 
-                                                } elseif ($singleSku == 'mListPrice') {
+                                                } if ($singleSku == 'mListPrice') {
                                                     //echo "this is an mlisprice";
 
                                                     $tempMListPriceArray = array('mListPrice' => $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mModel'){
+                                                } if ($singleSku == 'mModel'){
                                                     //echo 'this is the model';
 
                                                     $tempMModelArray = array('mModel'=> $skuEntryColumnHeading);
                                                     
                                                    
 
-                                                } elseif ($singleSku =='mLargeImage'){
+                                                } if ($singleSku =='mLargeImage'){
                                                     //echo 'this is the image';
 
                                                     $tempMLargeImageArray = array('mLargeImage'=> $skuEntryColumnHeading);
                                                  
 
-                                                } elseif ($singleSku == 'mId'){
+                                                } if ($singleSku == 'mId'){
                                                     //echo 'this is the mid';
 
                                                     $tempMIdArray = array('mId'=> $skuEntryColumnHeading);
                                                    
 
-                                                } elseif ($singleSku == 'mProductPageURL'){
+                                                } if ($singleSku == 'mProductPageURL'){
                                                    // echo 'mproductpageurl is this';
 
                                                     $tempProductPageURLArray = array('mProductPageURL'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mName') {
+                                                } if ($singleSku == 'mName') {
                                                    // echo 'this is the mname';
 
                                                     $tempmNameArray = array('mName'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'salesRank') {
+                                                } if ($singleSku == 'salesRank') {
                                                     //echo 'this is the salesrank';
                                                     //so I just realised this should totally be a function
                                                     $tempSalesRankArray = array('salesRank'=>$skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mStarRatings'){
+                                                } if ($singleSku == 'mStarRatings'){
                                                     // "this is the mstarrating";
 
                                                     $tempmStarRatingsArray = array('mStarRatings'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mProductId') {
+                                                } if ($singleSku == 'mProductId') {
                                                     //echo 'this is hte mproductid';
 
                                                     $tempmProductIdArray = array('mProductId'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'deviceType'){
+                                                } if ($singleSku == 'deviceType'){
                                                     //echo 'this is the devicetype';
                                                     
                                                     $tempDeviceTypeArray = array('deviceType'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mMobileProductPageURL'){
+                                                } if ($singleSku == 'mMobileProductPageURL'){
                                                     //echo 'this is the mobile product page url';
 
                                                     $tempmobileProductPageurlArray = array('mMobileProductPageURL'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mProductPageURLEs') {
+                                                } if ($singleSku == 'mProductPageURLEs') {
                                                     //echo 'this is the product page urles';
 
                                                     $tempmProductPageURLEs = array('mProductPageURLEs'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mDescription'){
+                                                } if ($singleSku == 'mDescription'){
                                                     //echo 'this is the mdescription';
 
                                                     $tempMDescriptionArray = array('mDescription'=> $skuEntryColumnHeading);
                                                     
 
-                                                } elseif ($singleSku == 'mDueToday'){
+                                                } if ($singleSku == 'mDueToday'){
                                                     //echo ' this is the mduetoday';
 
                                                     $tempMDueTodayArray = array('mDueToday'=> $skuEntryColumnHeading);
                                                   
 
-                                                } elseif ($singleSku == 'PDPPageURL'){
+                                                } if ($singleSku == 'PDPPageURL'){
                                                     //echo 'this is the pdppageurl';
 
                                                     $tempPDPPageURLArray =array('PDPPageURL'=>$skuEntryColumnHeading);
@@ -176,7 +174,6 @@
                                                         if(!is_array($skuSubColumnKey))
                                                         {
                                                             //echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
-
                                                             if ($skuSubColumnKey == 'M-CAT-SMARTPHONES'){//so this is the category we want, and if we only add this it should automatically filter out tablets and wearables
                                                                  //echo 'this a smartphone';
                                                                  $isSmartphone = true;
@@ -186,11 +183,10 @@
                                                     } //var_dump($isSmartphone);
                                                 }      
                                         } 
-
-                                        $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
-                                        var_dump($newSubTargetArray);//this can just be pushed into the big array?
-                                        echo '<br><br>';
-                                        
+                                            var_dump($tempmBrandArray);
+                                            $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
+                                            var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                            echo '<br><br>';
                                     }
                             }
                         }  

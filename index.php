@@ -5,6 +5,7 @@
     $fileForDisplay = json_decode($fileContents,true);
 
     $header = false;
+    $arrayToPassForCSVing = [];
 
 ?>
 
@@ -39,44 +40,44 @@
                                             if (!is_array($skuEntryColumnHeading))
                                             {
                                                 echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
-                                                if($singleSku == 'mbrand'){ // && brand !apple
+                                                if($singleSku == 'mBrand'){ // && brand !apple
                                                     echo "this is an mbrand";
-                                                } elseif($singleSku == 'skudisplayname') {
+                                                } elseif($singleSku == 'skuDisplayName') {
                                                     echo "this is a skudisplayname";
-                                                } elseif ($singleSku == 'mprice') {
+                                                } elseif ($singleSku == 'mPrice') {
                                                     echo "this is an mprice";
-                                                } elseif ($singleSku == 'mlistprice') {
+                                                } elseif ($singleSku == 'mListPrice') {
                                                     echo "this is an mlisprice";
-                                                } elseif ($singleSku == 'model'){
+                                                } elseif ($singleSku == 'mModel'){
                                                     echo 'this is the model';
-                                                } elseif ($singleSku =='mlargeimage'){
+                                                } elseif ($singleSku =='mLargeImage'){
                                                     echo 'this is the image';
-                                                } elseif ($singleSku == 'mid'){
+                                                } elseif ($singleSku == 'mId'){
                                                     echo 'this is the mid';
-                                                } elseif ($singleSku == 'mproductpageurl'){
+                                                } elseif ($singleSku == 'mProductPageURL'){
                                                     echo 'mproductpageurl is this';
-                                                } elseif ($singleSku == 'mname') {
+                                                } elseif ($singleSku == 'mName') {
                                                     echo 'this is the mname';
-                                                } elseif ($singleSku == 'salesrank') {
+                                                } elseif ($singleSku == 'salesRank') {
                                                     echo 'this is the salesrank';
-                                                } elseif ($singleSku == 'mstarratings'){
+                                                } elseif ($singleSku == 'mStarRatings'){
                                                     echo "this is the mstarrating";
-                                                } elseif ($singleSku == 'mproductid') {
+                                                } elseif ($singleSku == 'mProductId') {
                                                     echo 'this is hte mproductid';
-                                                } elseif ($singleSku == 'devicetype'){
+                                                } elseif ($singleSku == 'deviceType'){
                                                     echo 'this is the devicetype';
-                                                } elseif ($singleSku == 'mmobileproductpageurl'){
+                                                } elseif ($singleSku == 'mMobileProductPageURL'){
                                                     echo 'this is the mobile product page url';
-                                                } elseif ($singleSku == 'mproductpageurles') {
+                                                } elseif ($singleSku == 'mProductPageURLEs') {
                                                     echo 'this is the product page urles';
-                                                } elseif ($singleSku == 'mdescription'){
+                                                } elseif ($singleSku == 'mDescription'){
                                                     echo 'this is the mdescription';
-                                                } elseif ($singleSku == 'mduetoday'){
+                                                } elseif ($singleSku == 'mDueToday'){
                                                     echo ' this is the mduetoday';
-                                                } elseif ($singleSku == 'pdppageurl'){
+                                                } elseif ($singleSku == 'PDPPageURL'){
                                                     echo 'this is the pdppageurl';
                                                 } else {
-                                                    return;
+                                                    echo 'dont want this?';
                                                 }
                                                 
                                             } 

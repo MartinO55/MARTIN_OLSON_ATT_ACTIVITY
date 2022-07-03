@@ -37,7 +37,9 @@
                                 else {  //this cuts the two 1d things (I presume they are unwanted and unloved)
                                         $targetArray = [];//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing
                                     foreach($skuEntry as $singleSku => $skuEntryColumnHeading)
-                                        {//OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
+                                        {   $newSubTargetArray = [];
+                                            
+                                            //OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
                                             {
                                                 echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
@@ -45,6 +47,10 @@
                                                     echo "this is an mbrand";
                                                     if($skuEntryColumnHeading != 'Apple'){
                                                         echo ' this is not an apple device';
+                                                        $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading);
+                                                        $tempArrayAfter1 = array_merge($newSubTargetArray,$tempmBrandArray);
+                                                        //$tempArrayAfter1 = array_push($newSubTargetArray,$tempmBrandArray);
+                                                        //var_dump($tempArrayAfter1);
                                                     }
                                                 } elseif($singleSku == 'skuDisplayName') {// and remove colour descriptions? 
                                                     echo "this is a skudisplayname with the colour";
@@ -52,10 +58,23 @@
                                                     $lastHyphenInSkuDisplayNameLoc = strrpos($skuEntryColumnHeading,'-',-1);
                                                     //then use substr to cut the string at that location
                                                     $skuDisplayNameWithoutColour = substr($skuEntryColumnHeading,0,$lastHyphenInSkuDisplayNameLoc);
-                                                    echo $skuDisplayNameWithoutColour;//and then return this instead
+                                                    //echo $skuDisplayNameWithoutColour;//and then return this instead
+                                                    
                                                     //use that 
+                                                    $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);
+                                                    
+                                                    $tempArrayAfter2 = array_merge($tempArrayAfter1,$tempSkuDisplayNameArray);
+                                                    var_dump($tempArrayAfter2);
+                                                    //$newSubTargetArray = $newSubTargetArray + $tempSkuDisplayNameArray;
+                                                    //$tempArrayAfter2[] = array_push($tempArrayAfter1,$tempSkuDisplayNameArray);
+                                                    //var_dump($tempArrayAfter2);
+
                                                 } elseif ($singleSku == 'mPrice') {
                                                     echo "this is an mprice";
+
+                                                    $tempMPriceArray = array('mPrice' => $skuEntryColumnHeading);
+                                                    $tempArrayAfter3 = array_merge($tempArrayAfter2,$tempMPriceArray);
+
                                                 } elseif ($singleSku == 'mListPrice') {
                                                     echo "this is an mlisprice";
                                                 } elseif ($singleSku == 'mModel'){
@@ -90,6 +109,7 @@
                                                     echo 'dont want this';
                                                 }
                                                 
+                                               
                                             } 
                                             else 
                                                 {

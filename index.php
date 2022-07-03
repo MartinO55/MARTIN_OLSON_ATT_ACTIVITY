@@ -41,16 +41,15 @@
                                             
                                             //OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
-                                            {
+                                            { 
                                                 echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
                                                 if($singleSku == 'mBrand'){ // && brand !apple
                                                     echo "this is an mbrand";
                                                     if($skuEntryColumnHeading != 'Apple'){
                                                         echo ' this is not an apple device';
                                                         $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading);
-                                                        $tempArrayAfter1 = array_merge($newSubTargetArray,$tempmBrandArray);
-                                                        //$tempArrayAfter1 = array_push($newSubTargetArray,$tempmBrandArray);
-                                                        //var_dump($tempArrayAfter1);
+                                                        
+                                                      
                                                     }
                                                 } elseif($singleSku == 'skuDisplayName') {// and remove colour descriptions? 
                                                     echo "this is a skudisplayname with the colour";
@@ -63,111 +62,110 @@
                                                     //use that 
                                                     $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);
                                                     
-                                                    $tempArrayAfter2 = array_merge($tempArrayAfter1,$tempSkuDisplayNameArray);
-                                                    //var_dump($tempArrayAfter2);
-                                                    //$newSubTargetArray = $newSubTargetArray + $tempSkuDisplayNameArray;
-                                                    //$tempArrayAfter2[] = array_push($tempArrayAfter1,$tempSkuDisplayNameArray);
-                                                    //var_dump($tempArrayAfter2);
+                                                  
 
                                                 } elseif ($singleSku == 'mPrice') {
                                                     echo "this is an mprice";
 
                                                     $tempMPriceArray = array('mPrice' => $skuEntryColumnHeading);
-                                                    $tempArrayAfter3 = array_merge($tempArrayAfter2,$tempMPriceArray);
+                                                   
 
                                                 } elseif ($singleSku == 'mListPrice') {
                                                     echo "this is an mlisprice";
 
                                                     $tempMListPriceArray = array('mListPrice' => $skuEntryColumnHeading);
-                                                    $tempArrayAfter4 = array_merge($tempArrayAfter3, $tempMListPriceArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mModel'){
                                                     echo 'this is the model';
 
                                                     $tempMModelArray = array('mModel'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter5 = array_merge($tempArrayAfter4,$tempMModelArray);
+                                                    
+                                                   
 
                                                 } elseif ($singleSku =='mLargeImage'){
                                                     echo 'this is the image';
 
                                                     $tempMLargeImageArray = array('mLargeImage'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter6 = array_merge($tempArrayAfter5,$tempMLargeImageArray);
+                                                 
 
                                                 } elseif ($singleSku == 'mId'){
                                                     echo 'this is the mid';
 
                                                     $tempMIdArray = array('mId'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter7 = array_merge($tempArrayAfter6, $tempMIdArray);
+                                                   
 
                                                 } elseif ($singleSku == 'mProductPageURL'){
                                                     echo 'mproductpageurl is this';
 
                                                     $tempProductPageURLArray = array('mProductPageURL'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter8 = array_merge($tempArrayAfter7,$tempProductPageURLArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mName') {
                                                     echo 'this is the mname';
 
                                                     $tempmNameArray = array('mName'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter9 = array_merge($tempArrayAfter8,$tempmNameArray);
+                                                    
 
                                                 } elseif ($singleSku == 'salesRank') {
                                                     echo 'this is the salesrank';
                                                     //so I just realised this should totally be a function
                                                     $tempSalesRankArray = array('salesRank'=>$skuEntryColumnHeading);
-                                                    $tempArrayAfter10 = array_merge($tempArrayAfter9,$tempSalesRankArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mStarRatings'){
                                                     echo "this is the mstarrating";
 
                                                     $tempmStarRatingsArray = array('mStarRatings'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter11 = array_merge($tempArrayAfter10, $tempmStarRatingsArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mProductId') {
                                                     echo 'this is hte mproductid';
 
                                                     $tempmProductIdArray = array('mProductId'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter12 = array_merge($tempArrayAfter11, $tempmProductIdArray);
+                                                    
 
                                                 } elseif ($singleSku == 'deviceType'){
                                                     echo 'this is the devicetype';
                                                     
                                                     $tempDeviceTypeArray = array('deviceType'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter13 = array_merge($tempArrayAfter12, $tempDeviceTypeArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mMobileProductPageURL'){
                                                     echo 'this is the mobile product page url';
 
                                                     $tempmobileProductPageurlArray = array('mMobileProductPageURL'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter14 = array_merge($tempArrayAfter13, $tempmobileProductPageurlArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mProductPageURLEs') {
                                                     echo 'this is the product page urles';
 
                                                     $tempmProductPageURLEs = array('mProductPageURLEs'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter15 = array_merge($tempArrayAfter14, $tempmProductPageURLEs);
+                                                    
 
                                                 } elseif ($singleSku == 'mDescription'){
                                                     echo 'this is the mdescription';
 
                                                     $tempMDescriptionArray = array('mDescription'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter16 = array_merge($tempArrayAfter15, $tempMDescriptionArray);
+                                                    
 
                                                 } elseif ($singleSku == 'mDueToday'){
                                                     echo ' this is the mduetoday';
 
                                                     $tempMDueTodayArray = array('mDueToday'=> $skuEntryColumnHeading);
-                                                    $tempArrayAfter17 = array_merge($tempArrayAfter16, $tempMDueTodayArray);
+                                                  
 
                                                 } elseif ($singleSku == 'PDPPageURL'){
                                                     echo 'this is the pdppageurl';
 
                                                     $tempPDPPageURLArray =array('PDPPageURL'=>$skuEntryColumnHeading);
-                                                    $tempArrayAfter18 = array_merge($tempArrayAfter17,$tempPDPPageURLArray);
-
+                                                    
+                                                    //so this is the array with all the things, however, it is not limited by
+                                                    
                                                 } else {
                                                     echo 'dont want this';
-                                                }
+                                                } 
+                                                
                                                 
                                                
                                             } 
@@ -201,7 +199,9 @@
                                                         
                                                     }
                                                 }      
-                                        }
+                                        } 
+                                        $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
+                                        var_dump($newSubTargetArray);
                                     }
                             }
                         }  

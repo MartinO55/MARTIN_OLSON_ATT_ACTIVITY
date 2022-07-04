@@ -4,8 +4,8 @@
     $fileContents = file_get_contents($fileSourceURL);
     $fileForDisplay = json_decode($fileContents,true);
 
-    $header = false;
-    $arrayToPassForCSVing = [];
+    $header = false; //dont need this
+    $arrayToPassForCSVing = [];//probably dont need this here
 
 ?>
 

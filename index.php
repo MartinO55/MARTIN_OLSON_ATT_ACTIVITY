@@ -34,7 +34,7 @@
                         foreach($value as $sku => $skuEntry) 
                             {if (!is_array($skuEntry)) {echo 'You Should not be here';} 
                                 else {  //this cuts the two 1d things (I presume they are unwanted and unloved)
-                                        $targetArray = [];//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing
+                                        
                                     foreach($skuEntry as $singleSku => $skuEntryColumnHeading)
                                         {   $newSubTargetArray = [];
                                             //$filthyAppleDevice = false;
@@ -175,15 +175,20 @@
                                                         }  
                                                     } //var_dump($isSmartphone);
                                                 }      
-                                        } 
+                                        }
+                                        $targetArray = [];//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing
                                     if ($tempmBrandArray != 'filthyAppleDevice')
                                     {
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
+                                        
+                                        array_merge($targetArray,$newSubTargetArray);
                                         //var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                        
                                         //var_dump($smartphonesToggle);
-                                        echo '<br><br>';
+                                        //echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
-                                    }     
+                                    }
+                                    var_dump($targetArray);     
                                 }
                             }
                         }  

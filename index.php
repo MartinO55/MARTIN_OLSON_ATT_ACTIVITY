@@ -148,9 +148,9 @@
                                                     { //echo $skuSubCollumn . '<br><br>';
                                                         if ($skuSubColumnKey = 'mCategories'){
                                                             //var_dump($skuSubColumnKey);
-                                                           for ($i=0; $i < $skuSubColumnKey; $i++) { 
-                                                            # code...
-                                                           }
+                                                        //    for ($i=0; $i < $skuSubColumnKey; $i++) { 
+                                                        //     # code...
+                                                        //    }
                                                         }
                                                         
                                                         if(!is_array($skuSubColumnKey))
@@ -181,14 +181,14 @@
                                     {
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
                                         
-                                        array_merge($targetArray,$newSubTargetArray);
+                                        array_push($targetArray,$newSubTargetArray);
                                         //var_dump($newSubTargetArray);//this can just be pushed into the big array?
                                         
                                         //var_dump($smartphonesToggle);
                                         //echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
                                     }
-                                    var_dump($targetArray);     
+                                    //var_dump($targetArray);     
                                 }
                             }
                         }  

@@ -174,15 +174,16 @@
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
                                         
                                         array_push($targetArray,$newSubTargetArray);
-                                        echo $tempSmartPhoneToggle;
-                                        var_dump($newSubTargetArray);//this can just be pushed into the big array?
-                                        echo '<br><br>';
+                                        //echo $tempSmartPhoneToggle;
+                                        //var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                        //echo '<br><br>';
                                         
                                         //var_dump($smartphonesToggle);
                                         //echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
                                     }
-                                    //var_dump($targetArray);     
+                                    var_dump($targetArray);
+                                    //fputcsv($targetArray);     
                                 }
                             }
                         }  

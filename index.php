@@ -1,7 +1,8 @@
 <?php
     $fileSourceURL = 'https://cdn.flashtalking.com/feeds/test_data/att_product_data.json';
+    $tempFileSource = 'C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\att_product_data.json';
     $fileBaseName = basename($fileSourceURL);
-    $fileContents = file_get_contents($fileSourceURL);
+    $fileContents = file_get_contents($tempFileSource);
     $fileForDisplay = json_decode($fileContents,true);
 
     $header = false; //dont need this
@@ -146,31 +147,27 @@
                                                 {
                                                     foreach($skuEntryColumnHeading as $skuSubCollumn => $skuSubColumnKey)
                                                     { //echo $skuSubCollumn . '<br><br>';
-                                                        if ($skuSubColumnKey = 'mCategories'){
-                                                            //var_dump($skuSubColumnKey);
-                                                        //    for ($i=0; $i < $skuSubColumnKey; $i++) { 
-                                                        //     # code...
-                                                        //    }
-                                                        }
-                                                        
-                                                        if(!is_array($skuSubColumnKey))
-                                                        {   //echo $skuSubColumnKey . '<br><br>';
+                                                   
+                                            
+                                                        if(is_array($skuSubColumnKey))
+                                                        {   var_dump( $skuEntryColumnHeading ); echo '<br><br>';
                                                             //echo $skuSubColumn;
                                                             //echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
-
-                                                            if ($skuSubColumnKey != 'M-CAT-SMARTPHONES'){//so this is the category we want, and if we only add this it should automatically filter out tablets and wearables
+                                                            if ($skuEntryColumnHeading = 'mCategories'){
+                                                                echo $skuEntryColumnHeading . " Category: "  . '<br>';
+                                                                var_dump($skuSubColumnKey);
+                                                                echo '<br><br>';
+                                                                
+                                                            }
+                                                            if (in_array('M-CAT-SMARTPHONES',$skuSubColumnKey) != 'M-CAT-SMARTPHONES'){//so this is the category we want, and if we only add this it should automatically filter out tablets and wearables
                                                                  
                                                                  //$isSmartphone = true;
-                                                                 //echo $skuSubColumnKey ;
+                                                                 //echo $skuSubCollumn;
+                                                                 //var_dump($skuSubColumnKey);
+                                                                 //echo '<br><br>';
+                                                                 
+
                                                                  //echo 'this a not smartphone <br>';
-                                                             }else{
-                                                                $smartphonesToggle = true;
-                                                                //echo $skuSubColumnKey . '<br>Smartphone<br>' . $singleSku ;
-                                                                if ($smartphonesToggle == true){
-                                                                    $isSmartPhone = array('This is a smartphone') ;
-                                                                    //var_dump($isSmartPhone);
-                                                                }
-                                                                //var_dump($smartphonesToggle) ;
                                                              }
                                                         }  
                                                     } //var_dump($isSmartphone);

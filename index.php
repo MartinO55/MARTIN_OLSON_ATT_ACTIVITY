@@ -4,10 +4,6 @@
     $fileBaseName = basename($fileSourceURL);
     $fileContents = file_get_contents($tempFileSource);
     $fileForDisplay = json_decode($fileContents,true);
-
-    //$header = false; //dont need this
-    //$arrayToPassForCSVing = [];//probably dont need this here
-
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +20,13 @@
     <body>
         <div>
         <a href="https://cdn.flashtalking.com/feeds/test_data/att_product_data.json">File here</a>
+        <a href="https://github.com/MartinO55/MARTIN_OLSON_ATT_ACTIVITY">Find the github link to this project here!</a>
         </div>
         <div>
             <?php
             foreach($fileForDisplay as $key => $value){
                 if(!is_array($value))
                 { 
-                    //echo '<br>1D object index: ' . $key . '<br>';
                 } else {
                         foreach($value as $sku => $skuEntry) 
                             {if (!is_array($skuEntry)) {echo 'You Should not be here';} 
@@ -38,16 +34,14 @@
                                         
                                     foreach($skuEntry as $singleSku => $skuEntryColumnHeading)
                                         {   $newSubTargetArray = [];
-                                            //$filthyAppleDevice = false;
-                                            //OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
+                                             //OKAY. so singleSku is the column heading ID. skuEntryColumnHeading is the data in each line, and some of these are still arrays
                                             if (!is_array($skuEntryColumnHeading))
                                             { 
-                                                //echo '<br>2D column index: ' . $singleSku . '<br>';//all the data we need can be found here
+                                                //all the data we need can be found here
                                                 if ($singleSku == 'mBrand'){ // && brand !apple                                        
                                                     $tempmBrandArray = array('mBrand'=> $skuEntryColumnHeading);
                                                     if($skuEntryColumnHeading == "Apple"){
-                                                        //$filthyAppleDevice = true;
-                                                        //var_dump($filthyAppleDevice);
+                                                       
                                                         $tempmBrandArray = 'filthyAppleDevice';
                                                     }
                                                 } if ($singleSku === 'skuDisplayName') {
@@ -58,82 +52,72 @@
                                                     $tempSkuDisplayNameArray = array('skuDisplayName' => $skuDisplayNameWithoutColour);   
 
                                                 } if ($singleSku == 'mPrice') {
-                                                    //echo "this is an mprice";
 
                                                     $tempMPriceArray = array('mPrice' => $skuEntryColumnHeading);
 
                                                 } if ($singleSku == 'mListPrice') {
-                                                    //echo "this is an mlisprice";
 
                                                     $tempMListPriceArray = array('mListPrice' => $skuEntryColumnHeading);
 
                                                 } if ($singleSku == 'mModel'){
-                                                    //echo 'this is the model';
 
                                                     $tempMModelArray = array('mModel'=> $skuEntryColumnHeading);
                                                     
                                                 } if ($singleSku =='mLargeImage'){
-                                                    //echo 'this is the image';
 
                                                     $tempMLargeImageArray = array('mLargeImage'=> $skuEntryColumnHeading);
 
                                                 } if ($singleSku == 'mId'){
-                                                    //echo 'this is the mid';
 
                                                     $tempMIdArray = array('mId'=> $skuEntryColumnHeading);
                                                    
                                                 } if ($singleSku == 'mProductPageURL'){
-                                                   // echo 'mproductpageurl is this';
+                                                  
 
                                                     $tempProductPageURLArray = array('mProductPageURL'=> $skuEntryColumnHeading);                  
 
                                                 } if ($singleSku == 'mName') {
-                                                   // echo 'this is the mname';
+                                        
 
                                                     $tempmNameArray = array('mName'=> $skuEntryColumnHeading);
                                                     
                                                 } if ($singleSku == 'salesRank') {
-                                                    //echo 'this is the salesrank';
+                                               
                                                     //so I just realised this should totally be a function
                                                     $tempSalesRankArray = array('salesRank'=>$skuEntryColumnHeading);
                                                     
                                                 } if ($singleSku == 'mStarRatings'){
-                                                    // "this is the mstarrating";
+                                                  
 
                                                     $tempmStarRatingsArray = array('mStarRatings'=> $skuEntryColumnHeading);                                                 
 
                                                 } if ($singleSku == 'mProductId') {
-                                                    //echo 'this is hte mproductid';
+                                              
 
                                                     $tempmProductIdArray = array('mProductId'=> $skuEntryColumnHeading);                                                  
 
                                                 } if ($singleSku == 'deviceType'){
-                                                    //echo 'this is the devicetype';
+                                              
                                                     
                                                     $tempDeviceTypeArray = array('deviceType'=> $skuEntryColumnHeading);
                                                     
                                                 } if ($singleSku == 'mMobileProductPageURL'){
-                                                    //echo 'this is the mobile product page url';
-
+                                                    
                                                     $tempmobileProductPageurlArray = array('mMobileProductPageURL'=> $skuEntryColumnHeading);
                                                     
                                                 } if ($singleSku == 'mProductPageURLEs') {
-                                                    //echo 'this is the product page urles';
 
                                                     $tempmProductPageURLEs = array('mProductPageURLEs'=> $skuEntryColumnHeading);    
 
                                                 } if ($singleSku == 'mDescription'){
-                                                    //echo 'this is the mdescription';
 
                                                     $tempMDescriptionArray = array('mDescription'=> $skuEntryColumnHeading);   
 
                                                 } if ($singleSku == 'mDueToday'){
-                                                    //echo ' this is the mduetoday';
 
                                                     $tempMDueTodayArray = array('mDueToday'=> $skuEntryColumnHeading);
 
                                                 } if ($singleSku == 'PDPPageURL'){
-                                                    //echo 'this is the pdppageurl';
 
                                                     $tempPDPPageURLArray = array('PDPPageURL'=>$skuEntryColumnHeading);
                                                     
@@ -141,20 +125,14 @@
                                                 } 
                                                 
                                                 else {
-                                                   // echo 'dont want this';
                                                 }          
                                             } else 
                                                 {   //$searchCatFor = "M-CAT-SMARTPHONES";
                                                     
                                                     if(array_search("M-CAT-SMARTPHONES",$skuEntryColumnHeading,true)){
-                                                        //var_dump($skuEntryColumnHeading);
-                                                        //echo '<br><br>';
+                                                       
                                                         $tempSmartPhoneToggle = 'smartphone';
-                                                        //echo $tempSmartPhoneToggle . '  ';
-                                                        //echo $singleSku . '<br>';
-                                                        //var_dump($skuEntryColumnHeading);
                                                 
-                                                        //echo '<br><br>';
                                                         
                                                     } if (array_search("M-CAT-TABLETS",$skuEntryColumnHeading,true)){
                                                         $tempSmartPhoneToggle = 'tablet';
@@ -174,15 +152,7 @@
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
                                         
                                         array_push($targetArray,$newSubTargetArray);
-                                        //echo $tempSmartPhoneToggle;
-                                        //var_dump($newSubTargetArray);//this can just be pushed into the big array?
-                                        //echo '<br><br>';
-                                        
-                                        //var_dump($smartphonesToggle);
-                                        //echo '<br><br>';
-                                        // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
-                                    }
-                                    //var_dump($targetArray);//I think for given value of work, this does
+                                         }
                                     
                                     //convert array to csv file
                                     $fp = fopen('C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv','w');
@@ -192,7 +162,7 @@
                                     }
                                     fclose($fp);
                                     
-                                    //send csv file     
+                                    //send csv file. So it turns out you dont have to do this in code. I'll comment this out but leave it for posterity     
                                     $host ='flashtalking.exavault.com';
                                     $port =21;
                                     $user = 'japac_testing';

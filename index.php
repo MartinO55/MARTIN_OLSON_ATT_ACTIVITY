@@ -135,7 +135,7 @@
                                                 } if ($singleSku == 'PDPPageURL'){
                                                     //echo 'this is the pdppageurl';
 
-                                                    $tempPDPPageURLArray =array('PDPPageURL'=>$skuEntryColumnHeading);
+                                                    $tempPDPPageURLArray = array('PDPPageURL'=>$skuEntryColumnHeading);
                                                     
                                                     //so this is the array with all the things, however, it is not limited by
                                                 } 
@@ -144,28 +144,39 @@
                                                    // echo 'dont want this';
                                                 }          
                                             } else 
-                                                {   $searchCatFor = "M-CAT-SMARTPHONES";
-                                                    if(in_array($searchCatFor,$skuEntryColumnHeading)){
-                                                        var_dump($skuEntryColumnHeading);
-                                                        echo '<br><br>';
-                                                    }
+                                                {   //$searchCatFor = "M-CAT-SMARTPHONES";
                                                     
-                                                    
-                                                    
+                                                    if(array_search("M-CAT-SMARTPHONES",$skuEntryColumnHeading,true)){
+                                                        //var_dump($skuEntryColumnHeading);
+                                                        //echo '<br><br>';
+                                                        $tempSmartPhoneToggle = 'smartphone';
+                                                        //echo $tempSmartPhoneToggle . '  ';
+                                                        //echo $singleSku . '<br>';
+                                                        //var_dump($skuEntryColumnHeading);
                                                 
-                                                
-
-                                                   
-
+                                                        //echo '<br><br>';
+                                                        
+                                                    } if (array_search("M-CAT-TABLETS",$skuEntryColumnHeading,true)){
+                                                        $tempSmartPhoneToggle = 'tablet';
+                                                    } if (array_search("Wearables",$skuEntryColumnHeading,true)){
+                                                        $tempSmartPhoneToggle = 'wearable';
+                                                    } 
+                                                       
+                                                    
+                                                    
+                                                    
+                                                    
                                                 }      
                                         }
                                         $targetArray = [];//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing
-                                    if ($tempmBrandArray != 'filthyAppleDevice')
+                                    if ($tempmBrandArray != 'filthyAppleDevice' && $tempSmartPhoneToggle == 'smartphone')
                                     {
                                         $newSubTargetArray = $tempmBrandArray + $tempSkuDisplayNameArray +$tempMPriceArray + $tempMListPriceArray +$tempMModelArray+$tempMLargeImageArray +$tempMIdArray+$tempProductPageURLArray + $tempmNameArray +$tempSalesRankArray+$tempmStarRatingsArray+$tempmProductIdArray+$tempDeviceTypeArray+$tempmobileProductPageurlArray+$tempmProductPageURLEs+$tempMDescriptionArray+$tempMDueTodayArray+$tempPDPPageURLArray;
                                         
                                         array_push($targetArray,$newSubTargetArray);
-                                        //var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                        echo $tempSmartPhoneToggle;
+                                        var_dump($newSubTargetArray);//this can just be pushed into the big array?
+                                        echo '<br><br>';
                                         
                                         //var_dump($smartphonesToggle);
                                         //echo '<br><br>';

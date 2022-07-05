@@ -40,3 +40,10 @@ Finally, turn the whole thing into a CSV file and upload it to the given address
 ## Method
 
 So the two ways to do this would be to either remove the offending information from the JSON file, or to create a new set of data and return that instead.
+
+Upload data to this FTP
+a. host: flashtalking.exavault.com
+user: japac_testing
+password: h8wDT*9D%L(H&4gw
+ports: ftp-21 sftp-22
+ftp://japac_testing:h8wDT*9D%L(H&4gw@flashtalking.exavault.com/

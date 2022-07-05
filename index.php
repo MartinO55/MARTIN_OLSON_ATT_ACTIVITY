@@ -182,14 +182,37 @@
                                         //echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
                                     }
-                                    var_dump($targetArray);//I think for given value of work, this does
+                                    //var_dump($targetArray);//I think for given value of work, this does
                                     
+                                    //convert array to csv file
                                     $fp = fopen('C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv','w');
                                     
                                     foreach ($targetArray as $fields){
                                         fputcsv($fp,$fields);
                                     }
-                                    fclose($fp);    
+                                    fclose($fp);
+                                    
+                                    //send csv file     
+                                    $host ='flashtalking.exavault.com';
+                                    $port =21;
+                                    $user = 'japac_testing';
+                                    $secureport = 22;
+                                    $ftp_password = 'h8wDT*9D%L(H&4gw';
+                                    $file = 'C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv';
+                                    $ftpServer = 'ftp://japac_testing:h8wDT*9D%L(H&4gw@flashtalking.exavault.com/';
+
+                                    $ftp = ftp_connect($host,22,90);
+                                    ftp_login($ftp,$user,$ftp_password);
+                                    echo 'upload commencing...<br><br>';
+
+                                    $ret = ftp_nb_put($ftp,'MARTIN_OLSON_ATT_ACTIVITY.csv',$file,FTP_BINARY,FTP_AUTORESUME);
+                                    
+                                    while (FTP_MOREDATA == $ret){
+                                        echo 'uploading...';
+                                        $ret = ftp_nb_continue($ftp);
+                                    }
+                                    ftp_close($ftp);
+                                    echo '<br><br>upload complete :)';
                                 }
                             }
                         }  

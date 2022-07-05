@@ -144,33 +144,19 @@
                                                    // echo 'dont want this';
                                                 }          
                                             } else 
-                                                {
-                                                    foreach($skuEntryColumnHeading as $skuSubCollumn => $skuSubColumnKey)
-                                                    { //echo $skuSubCollumn . '<br><br>';
-                                                   
-                                            
-                                                        if(is_array($skuSubColumnKey))
-                                                        {   var_dump( $skuEntryColumnHeading ); echo '<br><br>';
-                                                            //echo $skuSubColumn;
-                                                            //echo "<br>3D sku subcolumn contents: " . $skuSubColumnKey;
-                                                            if ($skuEntryColumnHeading = 'mCategories'){
-                                                                echo $skuEntryColumnHeading . " Category: "  . '<br>';
-                                                                var_dump($skuSubColumnKey);
-                                                                echo '<br><br>';
-                                                                
-                                                            }
-                                                            if (in_array('M-CAT-SMARTPHONES',$skuSubColumnKey) != 'M-CAT-SMARTPHONES'){//so this is the category we want, and if we only add this it should automatically filter out tablets and wearables
-                                                                 
-                                                                 //$isSmartphone = true;
-                                                                 //echo $skuSubCollumn;
-                                                                 //var_dump($skuSubColumnKey);
-                                                                 //echo '<br><br>';
-                                                                 
+                                                {   $searchCatFor = "M-CAT-SMARTPHONES";
+                                                    if(in_array($searchCatFor,$skuEntryColumnHeading)){
+                                                        var_dump($skuEntryColumnHeading);
+                                                        echo '<br><br>';
+                                                    }
+                                                    
+                                                    
+                                                    
+                                                
+                                                
 
-                                                                 //echo 'this a not smartphone <br>';
-                                                             }
-                                                        }  
-                                                    } //var_dump($isSmartphone);
+                                                   
+
                                                 }      
                                         }
                                         $targetArray = [];//need a new array for each entry that can hold the stuff being pushed from the logic below, then that array needs to be pushed to the one being created for CSVing

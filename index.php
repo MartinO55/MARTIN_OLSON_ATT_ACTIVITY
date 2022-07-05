@@ -5,8 +5,8 @@
     $fileContents = file_get_contents($tempFileSource);
     $fileForDisplay = json_decode($fileContents,true);
 
-    $header = false; //dont need this
-    $arrayToPassForCSVing = [];//probably dont need this here
+    //$header = false; //dont need this
+    //$arrayToPassForCSVing = [];//probably dont need this here
 
 ?>
 
@@ -182,8 +182,14 @@
                                         //echo '<br><br>';
                                         // $newSubTargetArray = $tempmBrandArray=$tempSkuDisplayNameArray=$tempMPriceArray=$tempMListPriceArray=$tempMModelArray=$tempMLargeImageArray=$tempMIdArray=$tempProductPageURLArray=$tempmNameArray=$tempSalesRankArray=$tempmStarRatingsArray=$tempmProductIdArray=$tempDeviceTypeArray=$tempmobileProductPageurlArray=$tempmProductPageURLEs=$tempMDescriptionArray=$tempMDueTodayArray=$tempPDPPageURLArray =null;
                                     }
-                                    var_dump($targetArray);
-                                    //fputcsv($targetArray);     
+                                    var_dump($targetArray);//I think for given value of work, this does
+                                    
+                                    $fp = fopen('C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv','w');
+                                    
+                                    foreach ($targetArray as $fields){
+                                        fputcsv($fp,$fields);
+                                    }
+                                    fclose($fp);    
                                 }
                             }
                         }  

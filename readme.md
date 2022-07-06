@@ -44,6 +44,6 @@ So the two ways to do this would be to either remove the offending information f
 Upload data to this FTP
 a. host: flashtalking.exavault.com
 user: japac_testing
-password: h8wDT*9D%L(H&4gw
+password: nope
 ports: ftp-21 sftp-22
-ftp://japac_testing:h8wDT*9D%L(H&4gw@flashtalking.exavault.com/
+ftp://japac_testing:@flashtalking.exavault.com/

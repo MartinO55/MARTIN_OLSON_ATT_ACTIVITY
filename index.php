@@ -140,7 +140,7 @@
                     }
                 }  
     }
-    $fp = fopen('C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv','w');
+    $fp = fopen('C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv','a');
                             
     foreach ($targetArray as $fields){
          fputcsv($fp,$fields);

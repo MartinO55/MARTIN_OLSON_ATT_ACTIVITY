@@ -152,9 +152,9 @@
     // $port =21;
     // $user = 'japac_testing';
     // $secureport = 22;
-    // $ftp_password = 'nope';
+    // $ftp_password = 'h8wDT*9D%L(H&4gw';
     // $file = 'C:\xampp\htdocs\MARTIN_OLSON_ATT_ACTIVITY\MARTIN_OLSON_ATT_ACTIVITY.csv';
-    // $ftpServer = 'ftp://japac_testing:nope@flashtalking.exavault.com/';
+    // $ftpServer = 'ftp://japac_testing:h8wDT*9D%L(H&4gw@flashtalking.exavault.com/';
 
     // $ftp = ftp_connect($host,22,90);
     // ftp_login($ftp,$user,$ftp_password);
